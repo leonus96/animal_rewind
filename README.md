@@ -1,16 +1,16 @@
-# extinct
+# Animal Rewind
 
-App for Gemini AI Competition
+App for Gemini AI Competition.
 
-## Getting Started
+Animal Rewind is an app that allows you to converse with six fascinating extinct animals: the Dodo, Thylacine, Quagga, Passenger Pigeon, Giant Tortoise and Bucardo.
 
-This project is a starting point for a Flutter application.
+Each conversation is a unique experience, where users can learn about the habitat, the reasons for extinction and how we can prevent other species from suffering the same fate.
 
-A few resources to get you started if this is your first Flutter project:
+Through these conversations, users are inspired to reflect on the human impact on nature.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Animal Rewind is not only an educational tool, but also a call to action. Knowing the past helps us protect the future.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Download
+PlayStore: https://play.google.com/store/apps/details?id=com.leonus96.extinct.extinct
+
+
