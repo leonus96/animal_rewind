@@ -23,6 +23,10 @@ class _ChatPageState extends State<ChatPage> {
   List<Content> _chatHistory = [];
   bool _isTyping = false;
   bool _isError = false;
+  bool _isScrollDownProgrammed = false;
+
+  bool get _scrollControllerIsAttached =>
+      _scrollController.positions.isNotEmpty;
 
   @override
   void initState() {
@@ -33,14 +37,12 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
-    final scrollPositionIsAttached = _scrollController.positions.isNotEmpty;
-    if (scrollPositionIsAttached) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        _scrollController.animateTo(
-          _scrollController.position.maxScrollExtent,
-          duration: const Duration(milliseconds: 200),
-          curve: Curves.easeIn,
-        );
+    _maybeScrollDownToEnd();
+    if (!_isScrollDownProgrammed) {
+      _isScrollDownProgrammed = true;
+      Future.delayed(const Duration(milliseconds: 500), () {
+        _maybeScrollDownToEnd();
+        _isScrollDownProgrammed = false;
       });
     }
 
@@ -148,8 +150,22 @@ class _ChatPageState extends State<ChatPage> {
     );
   }
 
+  void _maybeScrollDownToEnd() {
+    if (!_scrollControllerIsAttached) {
+      return;
+    }
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scrollController.animateTo(
+        _scrollController.position.maxScrollExtent,
+        duration: const Duration(milliseconds: 100),
+        curve: Curves.easeIn,
+      );
+    });
+  }
+
   void _sendMessage() async {
-    if(_inputController.text.isEmpty) {
+    if (_inputController.text.isEmpty) {
       return;
     }
 

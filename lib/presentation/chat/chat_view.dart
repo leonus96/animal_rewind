@@ -38,7 +38,7 @@ class ChatView extends StatelessWidget {
           }
 
           if (i == chatHistory.length + 1) {
-            return const SizedBox(height: 48);
+            return const SizedBox(height: 64);
           }
 
           final content = contentList[i];

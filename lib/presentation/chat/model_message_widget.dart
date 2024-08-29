@@ -23,8 +23,7 @@ class ModelMessageWidget extends StatelessWidget {
       children: [
         CircleAvatar(
           backgroundColor: Theme.of(context).colorScheme.tertiaryContainer,
-          backgroundImage:
-              AssetImage('assets/avatar/${animal.key}_avatar.png'),
+          backgroundImage: AssetImage('assets/avatar/${animal.key}_avatar.png'),
           radius: 24,
         ),
         const SizedBox(width: 8.0),
