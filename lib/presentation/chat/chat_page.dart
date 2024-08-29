@@ -149,6 +149,10 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   void _sendMessage() async {
+    if(_inputController.text.isEmpty) {
+      return;
+    }
+
     final message = Content.text(_inputController.text);
     _inputController.text = '';
 
