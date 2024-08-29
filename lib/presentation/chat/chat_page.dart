@@ -91,9 +91,9 @@ class _ChatPageState extends State<ChatPage> {
               left: 0,
               right: 0,
               child: IgnorePointer(
-                ignoring: _isError,
+                ignoring: _isError || _isTyping,
                 child: Opacity(
-                  opacity: _isError ? 0.5 : 1.0,
+                  opacity: _isError || _isTyping ? 0.5 : 1.0,
                   child: Column(
                     children: [
                       if (_chatHistory.isNotEmpty)
@@ -160,9 +160,7 @@ class _ChatPageState extends State<ChatPage> {
     final focusScope = FocusScope.of(context);
     try {
       await _geminiApiHelper.sendMessage(message);
-    } catch (e,s) {
-      print(e);
-      print(s);
+    } catch (_) {
       _chatHistory.add(Content('model', [
         TextPart(
             '{"response": "🔴 Parece que me he tomado un descanso inesperado '
