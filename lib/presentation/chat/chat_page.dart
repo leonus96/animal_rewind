@@ -151,11 +151,11 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   void _maybeScrollDownToEnd() {
-    if (!_scrollControllerIsAttached) {
-      return;
-    }
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!_scrollControllerIsAttached) {
+        return;
+      }
+
       _scrollController.animateTo(
         _scrollController.position.maxScrollExtent,
         duration: const Duration(milliseconds: 100),
